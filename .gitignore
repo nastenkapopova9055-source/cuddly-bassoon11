@@ -1,0 +1,11 @@
+# Logs
+*.log
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Vercel
+.vercel/

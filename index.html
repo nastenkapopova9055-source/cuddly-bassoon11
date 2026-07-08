@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Сервисный инженер радиосети — профессия будущего в ЭР-Телеком Холдинг. Узнай о карьерных возможностях, требованиях и преимуществах работы.">
+  <title>Сервисный инженер радиосети | ЭР-Телеком Холдинг</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a2e;
+      background: #f8f9fc;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== VARIABLES ===== */
+    :root {
+      --primary: #0056b3;
+      --primary-dark: #003d80;
+      --primary-light: #e8f0fe;
+      --accent: #00c853;
+      --accent-dark: #009624;
+      --gradient: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
+      --gradient-accent: linear-gradient(135deg, #00c853 0%, #009624 100%);
+      --text-dark: #1a1a2e;
+      --text-muted: #5a5a7a;
+      --text-light: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.10);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --max-width: 1200px;
+      --header-height: 72px;
+    }
+
+    /* ===== HEADER / NAV ===== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: var(--transition);
+      height: var(--header-height);
+    }
+    .header.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    .header__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header__logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+    .header__logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+    .header__logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+    }
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header__nav a {
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .header__nav a:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    .header__cta {
+      padding: 10px 24px;
+      border-radius: 50px;
+      background: var(--gradient);
+      color: #fff !important;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .header__cta:hover {
+      background: var(--primary-dark) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0,86,179,0.3);
+    }
+
+    /* Mobile menu */
+    .header__burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .header__burger span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: var(--text-dark);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .header__burger.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .header__burger.active span:nth-child(2) { opacity: 0; }
+    .header__burger.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: var(--gradient);
+      overflow: hidden;
+      padding-top: var(--header-height);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 600px 400px at 80% 20%, rgba(0,200,83,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 500px at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero__bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero__circles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .hero__circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.06);
+      animation: float 20s ease-in-out infinite;
+    }
+    .hero__circle:nth-child(1) {
+      width: 500px; height: 500px;
+      top: -100px; right: -100px;
+      animation-delay: 0s;
+    }
+    .hero__circle:nth-child(2) {
+      width: 300px; height: 300px;
+      bottom: 50px; left: -50px;
+      animation-delay: -5s;
+    }
+    .hero__circle:nth-child(3) {
+      width: 200px; height: 200px;
+      top: 40%; right: 15%;
+      animation-delay: -10s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 24px;
+    }
+    .hero__badge-dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .hero__title {
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .hero__title span {
+      background: linear-gradient(135deg, #00c853, #69f0ae);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero__subtitle {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+    .hero__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-primary {
+      background: #fff;
+      color: var(--primary);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .btn-outline:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+    .btn-accent {
+      background: var(--gradient-accent);
+      color: #fff;
+    }
+    .btn-accent:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,200,83,0.35);
+    }
+
+    .hero__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .hero__stat {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+    }
+    .hero__stat-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .hero__stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 4px;
+    }
+
+    .hero__visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero__illustration {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 1;
+      position: relative;
+    }
+    .hero__illustration-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero__illustration-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+      animation: spin 30s linear infinite;
+    }
+    .hero__illustration-ring:nth-child(1) { width: 100%; height: 100%; }
+    .hero__illustration-ring:nth-child(2) { width: 75%; height: 75%; animation-direction: reverse; animation-duration: 20s; }
+    .hero__illustration-ring:nth-child(3) { width: 50%; height: 50%; animation-duration: 15s; }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .hero__illustration-icon {
+      position: relative;
+      z-index: 2;
+      width: 120px;
+      height: 120px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.15);
+    }
+    .hero__signal-bars {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero__signal-bar {
+      position: absolute;
+      width: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      opacity: 0.3;
+      animation: signal-bar 2s ease-in-out infinite;
+    }
+    .hero__signal-bar:nth-child(1) { height: 30px; transform: rotate(-45deg) translateX(-60px); animation-delay: 0s; }
+    .hero__signal-bar:nth-child(2) { height: 50px; transform: rotate(-20deg) translateX(-40px); animation-delay: 0.3s; }
+    .hero__signal-bar:nth-child(3) { height: 70px; transform: rotate(0deg); animation-delay: 0.6s; }
+    .hero__signal-bar:nth-child(4) { height: 50px; transform: rotate(20deg) translateX(40px); animation-delay: 0.9s; }
+    .hero__signal-bar:nth-child(5) { height: 30px; transform: rotate(45deg) translateX(60px); animation-delay: 1.2s; }
+    @keyframes signal-bar {
+      0%, 100% { opacity: 0.2; height: 30px; }
+      50% { opacity: 1; height: 80px; }
+    }
+
+    /* ===== SECTION COMMON ===== */
+    .section {
+      padding: 100px 24px;
+    }
+    .section__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .section__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .section__title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+    }
+    .section__desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      line-height: 1.7;
+    }
+    .section--dark {
+      background: var(--text-dark);
+      color: #fff;
+    }
+    .section--dark .section__title { color: #fff; }
+    .section--dark .section__desc { color: rgba(255,255,255,0.7); }
+    .section--dark .section__label { color: var(--accent); }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: #fff;
+    }
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about__content .section__desc {
+      margin-bottom: 24px;
+    }
+    .about__features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .about__feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--primary-light);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .about__feature i {
+      color: var(--primary);
+      font-size: 1rem;
+    }
+    .about__image {
+      background: var(--gradient);
+      border-radius: var(--radius);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about__image-inner {
+      text-align: center;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+    .about__image-inner i {
+      font-size: 5rem;
+      opacity: 0.9;
+      margin-bottom: 16px;
+    }
+    .about__image-inner p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    /* ===== RESPONSIBILITIES ===== */
+    .responsibilities {
+      background: var(--primary-light);
+    }
+    .responsibilities__header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .responsibilities__header .section__desc {
+      margin: 0 auto;
+    }
+    .responsibilities__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .resp-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .resp-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .resp-card__icon {
+      width: 56px;
+      height: 56px;
+      background: var(--primary-light);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .resp-card__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .resp-card__text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills__header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .skills__header .section__desc {
+      margin: 0 auto;
+    }
+    .skills__tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .skills__tab {
+      padding: 10px 24px;
+      border-radius: 50px;
+      border: 1px solid rgba(0,0,0,0.1);
+      background: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .skills__tab:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .skills__tab.active {
+      background: var(--gradient);
+      color: #fff;
+      border-color: transparent;
+    }
+    .skills__content {
+      display: none;
+    }
+    .skills__content.active {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: #fff;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .skill-item:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+    }
+    .skill-item__icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: var(--primary-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    .skill-item__info h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .skill-item__info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== CAREER PATH ===== */
+    .career {
+      background: #fff;
+    }
+    .career__header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .career__header .section__desc {
+      margin: 0 auto;
+    }
+    .career__timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .career__timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent), var(--primary));
+      border-radius: 2px;
+    }
+    .career__step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .career__step:nth-child(odd) {
+      flex-direction: row;
+    }
+    .career__step:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .career__step-content {
+      width: calc(50% - 40px);
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .career__step-content:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .career__step-dot {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 3px var(--primary);
+      z-index: 1;
+      top: 24px;
+    }
+    .career__step:nth-child(even) .career__step-content {
+      text-align: left;
+    }
+    .career__step-level {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .career__step-level--junior { background: #e3f2fd; color: #1565c0; }
+    .career__step-level--middle { background: #e8f5e9; color: #2e7d32; }
+    .career__step-level--senior { background: #fff3e0; color: #e65100; }
+    .career__step-level--lead { background: #fce4ec; color: #c62828; }
+    .career__step-level--head { background: #f3e5f5; color: #6a1b9a; }
+    .career__step-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .career__step-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== BENEFITS ===== */
+    .benefits {
+      background: var(--text-dark);
+      color: #fff;
+    }
+    .benefits__header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .benefits__header .section__desc {
+      color: rgba(255,255,255,0.7);
+    }
+    .benefits__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .benefit-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .benefit-card:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-4px);
+    }
+    .benefit-card__icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+    .benefit-card__title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .benefit-card__text {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      background: #fff;
+    }
+    .testimonials__header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .testimonials__header .section__desc {
+      margin: 0 auto;
+    }
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      position: relative;
+    }
+    .testimonial-card__quote {
+      font-size: 2rem;
+      color: var(--primary);
+      opacity: 0.2;
+      margin-bottom: 8px;
+    }
+    .testimonial-card__text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .testimonial-card__author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-card__avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .testimonial-card__name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .testimonial-card__role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== DANCING HUMANS ON REVIEWS ===== */
+    .testimonial-card__dancer {
+      font-size: 2.6rem;
+      line-height: 1;
+      text-align: center;
+      margin-bottom: 12px;
+      display: block;
+      transform-origin: bottom center;
+      animation: dancerDance 1.1s ease-in-out infinite;
+    }
+    .testimonial-card__dancer--delay-1 { animation-delay: 0.35s; }
+    .testimonial-card__dancer--delay-2 { animation-delay: 0.7s; }
+    @keyframes dancerDance {
+      0%, 100% { transform: translateY(0) rotate(-8deg); }
+      25%      { transform: translateY(-8px) rotate(8deg); }
+      50%      { transform: translateY(0) rotate(-4deg) scale(1.05); }
+      75%      { transform: translateY(-5px) rotate(6deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .testimonial-card__dancer { animation: none; }
+    }
+
+    /* ===== GAME ===== */
+    .game {
+      background: var(--text-dark);
+    }
+    .game .section__title { color: #fff; }
+    .game .section__desc { color: rgba(255,255,255,0.7); text-align: center; }
+    .game .section__desc strong { color: var(--accent); }
+    .game__wrapper {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 20px;
+      max-width: 940px;
+      margin: 0 auto;
+    }
+    #gameCanvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 900/500;
+      border-radius: var(--radius-sm);
+      background: #1a2332;
+      cursor: pointer;
+      image-rendering: pixelated;
+    }
+    .game__hud {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .game__hud-item {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .game__hud-item i { color: var(--accent); }
+    .game__hud-item span { color: #fff; font-size: 1.1rem; }
+
+    @media (max-width: 768px) {
+      .game__wrapper { padding: 12px; }
+      .game__hud { gap: 12px; }
+      .game__hud-item { font-size: 0.8rem; }
+      #repairBtn { display: inline-flex !important; }
+    }
+    @media (min-width: 769px) {
+      #repairBtn { display: none !important; }
+    }
+
+    /* ===== CTA / APPLY ===== */
+    .cta {
+      background: var(--gradient);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 800px 400px at 50% 100%, rgba(0,200,83,0.15) 0%, transparent 70%);
+    }
+    .cta__inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .cta__title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .cta__desc {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+    .cta__actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #0d0d1a;
+      color: rgba(255,255,255,0.7);
+      padding: 48px 24px 24px;
+    }
+    .footer__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer__brand {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .footer__brand span {
+      color: var(--accent);
+    }
+    .footer__text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .footer__social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer__social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .footer__social a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .footer__social-img {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+    .footer__social a:hover .footer__social-img {
+      opacity: 1;
+    }
+    .footer__col-title {
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+    .footer__col a {
+      display: block;
+      padding: 6px 0;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .footer__col a:hover {
+      color: var(--accent);
+    }
+    .footer__bottom {
+      max-width: var(--max-width);
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero__inner { grid-template-columns: 1fr; text-align: center; }
+      .hero__subtitle { margin: 0 auto 32px; }
+      .hero__actions { justify-content: center; }
+      .hero__stats { max-width: 500px; margin: 40px auto 0; }
+      .hero__visual { display: none; }
+      .about__grid { grid-template-columns: 1fr; }
+      .about__image { order: -1; max-width: 500px; margin: 0 auto; }
+      .responsibilities__grid { grid-template-columns: repeat(2, 1fr); }
+      .benefits__grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials__grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+      .footer__inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .header__nav { display: none; }
+      .header__nav.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(20px);
+        padding: 16px 24px;
+        box-shadow: var(--shadow-md);
+        gap: 4px;
+      }
+      .header__nav.open a { width: 100%; }
+      .header__burger { display: flex; }
+      .hero { min-height: auto; }
+      .hero__inner { padding: 60px 20px 40px; }
+      .hero__title { font-size: 2rem; }
+      .hero__stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .hero__stat { padding: 12px 8px; }
+      .hero__stat-value { font-size: 1.3rem; }
+      .hero__stat-label { font-size: 0.7rem; }
+      .section { padding: 60px 20px; }
+      .responsibilities__grid { grid-template-columns: 1fr; }
+      .skills__content.active { grid-template-columns: 1fr; }
+      .career__timeline::before { left: 20px; }
+      .career__step, .career__step:nth-child(even) { flex-direction: row; }
+      .career__step-content { width: calc(100% - 50px); margin-left: 50px; }
+      .career__step-dot { left: 20px; }
+      .benefits__grid { grid-template-columns: 1fr; }
+      .footer__inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+          <img src="https://www.ertelecom.ru/favicon.ico" alt="ЭР-Телеком" class="header__logo-img">
+          ЭР-Телеком Холдинг
+      </a>
+      <nav class="header__nav" id="nav">
+        <a href="#about">О профессии</a>
+        <a href="#responsibilities">Обязанности</a>
+        <a href="#skills">Навыки</a>
+        <a href="#career">Карьера</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#career" class="header__cta">Стать частью команды</a>
+      </nav>
+      <button class="header__burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg-grid"></div>
+    <div class="hero__circles">
+      <div class="hero__circle"></div>
+      <div class="hero__circle"></div>
+      <div class="hero__circle"></div>
+    </div>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          Набор на стажировку 2026
+        </div>
+        <h1 class="hero__title">
+          Сервисный инженер<br><span>радиосети</span>
+        </h1>
+        <p class="hero__subtitle">
+          Строим и обслуживаем сети связи будущего. Присоединяйся к команде профессионалов
+          «ЭР-Телеком Холдинг» — лидера телеком-рынка России.
+        </p>
+        <div class="hero__actions">
+          <a href="#career" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i> Откликнуться
+          </a>
+          <a href="#about" class="btn btn-outline">
+            <i class="fas fa-chevron-down"></i> Узнать больше
+          </a>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <div class="hero__stat-value">70+</div>
+            <div class="hero__stat-label">Регионов присутствия</div>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-value">12 млн</div>
+            <div class="hero__stat-label">Абонентов</div>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-value">5 000+</div>
+            <div class="hero__stat-label">Сотрудников</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__illustration">
+          <div class="hero__illustration-ring"></div>
+          <div class="hero__illustration-ring"></div>
+          <div class="hero__illustration-ring"></div>
+          <div class="hero__illustration-inner">
+            <div class="hero__illustration-icon">
+              <i class="fas fa-broadcast-tower"></i>
+            </div>
+            <div class="hero__signal-bars">
+              <div class="hero__signal-bar"></div>
+              <div class="hero__signal-bar"></div>
+              <div class="hero__signal-bar"></div>
+              <div class="hero__signal-bar"></div>
+              <div class="hero__signal-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section about" id="about">
+    <div class="section__inner about__grid">
+      <div class="about__content">
+        <div class="section__label reveal">
+          <i class="fas fa-info-circle"></i> О профессии
+        </div>
+        <h2 class="section__title reveal">Кто такой сервисный инженер радиосети?</h2>
+        <p class="section__desc reveal">
+          Сервисный инженер радиосети — это специалист, отвечающий за эксплуатацию,
+          диагностику и ремонт оборудования радиодоступа. Это ключевая роль
+          в обеспечении качественной и бесперебойной работы сети GPON и FTTB.
+        </p>
+        <p class="section__desc reveal">
+          Ты будешь работать с современным телекоммуникационным оборудованием,
+          системами мониторинга и управления сетью. Каждый день — новые задачи
+          и возможности для профессионального роста.
+        </p>
+        <div class="about__features reveal">
+          <div class="about__feature"><i class="fas fa-wifi"></i> GPON / FTTB</div>
+          <div class="about__feature"><i class="fas fa-microchip"></i> Huawei / ZTE</div>
+          <div class="about__feature"><i class="fas fa-chart-line"></i> Мониторинг сети</div>
+          <div class="about__feature"><i class="fas fa-tools"></i> Диагностика</div>
+          <div class="about__feature"><i class="fas fa-users"></i> Работа в команде</div>
+          <div class="about__feature"><i class="fas fa-graduation-cap"></i> Обучение</div>
+        </div>
+      </div>
+      <div class="about__image reveal">
+        <div class="about__image-inner">
+          <i class="fas fa-network-wired"></i>
+          <p>Современная сеть связи</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESPONSIBILITIES ===== -->
+  <section class="section responsibilities" id="responsibilities">
+    <div class="section__inner">
+      <div class="responsibilities__header">
+        <div class="section__label reveal" style="justify-content:center;">
+          <i class="fas fa-tasks"></i> Обязанности
+        </div>
+        <h2 class="section__title reveal">Чем предстоит заниматься</h2>
+        <p class="section__desc reveal">
+          Ежедневная работа сервисного инженера радиосети включает широкий спектр
+          задач — от мониторинга до модернизации оборудования.
+        </p>
+      </div>
+      <div class="responsibilities__grid">
+        <div class="resp-card reveal">
+          <div class="resp-card__icon"><i class="fas fa-desktop"></i></div>
+          <h3 class="resp-card__title">Мониторинг и диагностика</h3>
+          <p class="resp-card__text">
+            Круглосуточный мониторинг состояния сети, выявление и устранение
+            неисправностей, работа с системами алертинга.
+          </p>
+        </div>
+        <div class="resp-card reveal">
+          <div class="resp-card__icon"><i class="fas fa-tools"></i></div>
+          <h3 class="resp-card__title">Обслуживание оборудования</h3>
+          <p class="resp-card__text">
+            Плановое и внеплановое обслуживание активного оборудования радиодоступа,
+            замена неисправных модулей и компонентов.
+          </p>
+        </div>
+        <div class="resp-card reveal">
+          <div class="resp-card__icon"><i class="fas fa-chart-bar"></i></div>
+          <h3 class="resp-card__title">Анализ качества связи</h3>
+          <p class="resp-card__text">
+            Измерение параметров сети, анализ качества услуг, подготовка отчётов
+            и рекомендаций по улучшению показателей.
+          </p>
+        </div>
+        <div class="resp-card reveal">
+          <div class="resp-card__icon"><i class="fas fa-cogs"></i></div>
+          <h3 class="resp-card__title">Конфигурация сети</h3>
+          <p class="resp-card__text">
+            Настройка и оптимизация параметров оборудования радиодоступа, управление
+            конфигурациями, обновление ПО.
+          </p>
+        </div>
+        <div class="resp-card reveal">
+          <div class="resp-card__icon"><i class="fas fa-hard-hat"></i></div>
+          <h3 class="resp-card__title">Модернизация сети</h3>
+          <p class="resp-card__text">
+            Участие в проектах по расширению и модернизации сети, внедрение
+            нового оборудования и технологий.
+          </p>
+        </div>
+        <div class="resp-card reveal">
+          <div class="resp-card__icon"><i class="fas fa-file-alt"></i></div>
+          <h3 class="resp-card__title">Документирование</h3>
+          <p class="resp-card__text">
+            Ведение технической документации, составление схем, актов выполненных
+            работ и инструкций для смежных подразделений.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="section skills" id="skills">
+    <div class="section__inner">
+      <div class="skills__header">
+        <div class="section__label reveal" style="justify-content:center;">
+          <i class="fas fa-lightbulb"></i> Навыки
+        </div>
+        <h2 class="section__title reveal">Что нужно знать и уметь</h2>
+        <p class="section__desc reveal">
+          Мы ценим как технические знания, так и личные качества. Готовы
+          обучать мотивированных кандидатов с нуля.
+        </p>
+      </div>
+      <div class="skills__tabs reveal">
+        <button class="skills__tab active" data-tab="tech">Технические</button>
+        <button class="skills__tab" data-tab="soft">Личные качества</button>
+        <button class="skills__tab" data-tab="tools">Инструменты</button>
+      </div>
+      <div class="skills__content active" id="tab-tech">
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-network-wired"></i></div>
+          <div class="skill-item__info">
+            <h4>Сетевые технологии</h4>
+            <p>GPON, FTTB, Ethernet, TCP/IP, VLAN, DNS, DHCP</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-broadcast-tower"></i></div>
+          <div class="skill-item__info">
+            <h4>Радиооборудование</h4>
+            <p>Huawei, ZTE, Nokia — базовые станции и абонентские устройства</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-terminal"></i></div>
+          <div class="skill-item__info">
+            <h4>Работа с CLI</h4>
+            <p>Настройка оборудования через командную строку, скриптинг</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-chart-line"></i></div>
+          <div class="skill-item__info">
+            <h4>Мониторинг</h4>
+            <p>Zabbix, Prometheus, Grafana, системы алертинга</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-draw-polygon"></i></div>
+          <div class="skill-item__info">
+            <h4>Радиопланирование</h4>
+            <p>Планирование частот, анализ покрытия, оптимизация</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="skill-item__info">
+            <h4>Безопасность</h4>
+            <p>Основы информационной безопасности, защита сетевой инфраструктуры</p>
+          </div>
+        </div>
+      </div>
+      <div class="skills__content" id="tab-soft">
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-comments"></i></div>
+          <div class="skill-item__info">
+            <h4>Коммуникабельность</h4>
+            <p>Умение работать с людьми, объяснять технические решения</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-brain"></i></div>
+          <div class="skill-item__info">
+            <h4>Аналитическое мышление</h4>
+            <p>Способность находить причины и устранять сложные неисправности</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-clock"></i></div>
+          <div class="skill-item__info">
+            <h4>Тайм-менеджмент</h4>
+            <p>Приоритизация задач, работа в режиме многозадачности</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-users"></i></div>
+          <div class="skill-item__info">
+            <h4>Командная работа</h4>
+            <p>Эффективное взаимодействие в команде технических специалистов</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-book-open"></i></div>
+          <div class="skill-item__info">
+            <h4>Обучаемость</h4>
+            <p>Готовность постоянно изучать новые технологии и стандарты</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-heart"></i></div>
+          <div class="skill-item__info">
+            <h4>Стрессоустойчивость</h4>
+            <p>Спокойствие в нештатных ситуациях, умение быстро принимать решения</p>
+          </div>
+        </div>
+      </div>
+      <div class="skills__content" id="tab-tools">
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-server"></i></div>
+          <div class="skill-item__info">
+            <h4>Системы мониторинга</h4>
+            <p>Zabbix, Grafana, Prometheus, Centreon</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-sitemap"></i></div>
+          <div class="skill-item__info">
+            <h4>NMS / OSS системы</h4>
+            <p>U2000, iManager, NetNumen — управление элементами сети</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="skill-item__info">
+            <h4>Скриптовые языки</h4>
+            <p>Python, Bash — автоматизация рутинных задач</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-database"></i></div>
+          <div class="skill-item__info">
+            <h4>Базы данных</h4>
+            <p>SQL — работа с БД оборудования и биллинга</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-file-code"></i></div>
+          <div class="skill-item__info">
+            <h4>Документация</h4>
+            <p>Visio, Draw.io — схемы сети; Confluence — база знаний</p>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-item__icon"><i class="fas fa-tachometer-alt"></i></div>
+          <div class="skill-item__info">
+            <h4>Тестовое оборудование</h4>
+            <p>OTDR, спектроанализаторы, измерители мощности оптического сигнала</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CAREER PATH ===== -->
+  <section class="section career" id="career">
+    <div class="section__inner">
+      <div class="career__header">
+        <div class="section__label reveal" style="justify-content:center;">
+          <i class="fas fa-rocket"></i> Карьерный путь
+        </div>
+        <h2 class="section__title reveal">Твой рост в компании</h2>
+        <p class="section__desc reveal">
+          Мы создаём прозрачную систему карьерного развития. От стажёра до
+          руководителя направления — каждый шаг подкреплён обучением и поддержкой.
+        </p>
+      </div>
+      <div class="career__timeline">
+        <div class="career__step reveal">
+          <div class="career__step-content">
+            <span class="career__step-level career__step-level--junior">Уровень 1</span>
+            <h3 class="career__step-title">Стажёр / Инженер 2 категории</h3>
+            <p class="career__step-text">
+              Погружение в сеть, работа с наставником, выполнение простых задач
+              под контролем опытных коллег. Обучение на реальных кейсах.
+            </p>
+          </div>
+          <div class="career__step-dot"></div>
+        </div>
+        <div class="career__step reveal">
+          <div class="career__step-content">
+            <span class="career__step-level career__step-level--middle">Уровень 2</span>
+            <h3 class="career__step-title">Инженер 1 категории</h3>
+            <p class="career__step-text">
+              Самостоятельное обслуживание участка сети, участие в проектах
+              модернизации, наставничество над стажёрами.
+            </p>
+          </div>
+          <div class="career__step-dot"></div>
+        </div>
+        <div class="career__step reveal">
+          <div class="career__step-content">
+            <span class="career__step-level career__step-level--senior">Уровень 3</span>
+            <h3 class="career__step-title">Ведущий инженер</h3>
+            <p class="career__step-text">
+              Управление группой, сложные проекты, внедрение новых технологий
+              и оптимизация существующих процессов.
+            </p>
+          </div>
+          <div class="career__step-dot"></div>
+        </div>
+        <div class="career__step reveal">
+          <div class="career__step-content">
+            <span class="career__step-level career__step-level--lead">Уровень 4</span>
+            <h3 class="career__step-title">Руководитель группы</h3>
+            <p class="career__step-text">
+              Управление командой инженеров, планирование загрузки, KPI,
+              отчётность, взаимодействие со смежными подразделениями.
+            </p>
+          </div>
+          <div class="career__step-dot"></div>
+        </div>
+        <div class="career__step reveal">
+          <div class="career__step-content">
+            <span class="career__step-level career__step-level--head">Уровень 5</span>
+            <h3 class="career__step-title">Руководитель направления</h3>
+            <p class="career__step-text">
+              Стратегическое развитие сети, бюджетирование, управление крупными
+              проектами, формирование технической политики.
+            </p>
+          </div>
+          <div class="career__step-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section class="section benefits" id="benefits">
+    <div class="section__inner">
+      <div class="benefits__header">
+        <div class="section__label reveal" style="justify-content:center;">
+          <i class="fas fa-star"></i> Преимущества
+        </div>
+        <h2 class="section__title reveal">Почему выбирают нас</h2>
+        <p class="section__desc reveal">
+          Мы создаём среду, в которой хочется расти и развиваться. Заботимся
+          о сотрудниках и предлагаем лучшие условия в отрасли.
+        </p>
+      </div>
+      <div class="benefits__grid">
+        <div class="benefit-card reveal">
+          <div class="benefit-card__icon"><i class="fas fa-hand-holding-usd"></i></div>
+          <h3 class="benefit-card__title">Достойная оплата</h3>
+          <p class="benefit-card__text">Конкурентная зарплата с ежегодным пересмотром, премии по результатам работы</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-card__icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3 class="benefit-card__title">Обучение и развитие</h3>
+          <p class="benefit-card__text">Корпоративный университет, курсы, сертификация, конференции за счёт компании</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-card__icon"><i class="fas fa-medkit"></i></div>
+          <h3 class="benefit-card__title">ДМС с первого дня</h3>
+          <p class="benefit-card__text">Полис добровольного медицинского страхования, включая стоматологию</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-card__icon"><i class="fas fa-phone-alt"></i></div>
+          <h3 class="benefit-card__title">Корпоративная связь</h3>
+          <p class="benefit-card__text">Бесплатный тариф с безлимитным интернетом и звонками для сотрудников</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-card__icon"><i class="fas fa-home"></i></div>
+          <h3 class="benefit-card__title">Гибкий график</h3>
+          <p class="benefit-card__text">Возможность удалённой работы, гибкое начало дня, сменный график</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-card__icon"><i class="fas fa-plane"></i></div>
+          <h3 class="benefit-card__title">Отдых</h3>
+          <p class="benefit-card__text">Оплачиваемый отпуск 28 дней, корпоративные мероприятия и тимбилдинги</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-card__icon"><i class="fas fa-coffee"></i></div>
+          <h3 class="benefit-card__title">Комфортный офис</h3>
+          <p class="benefit-card__text">Современные офисы с зонами отдыха, чай/кофе, снеками, парковкой</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-card__icon"><i class="fas fa-chart-line"></i></div>
+          <h3 class="benefit-card__title">Карьерный рост</h3>
+          <p class="benefit-card__text">Прозрачная система повышения, поддержка наставников, карьерные карты</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GAME ===== -->
+  <section class="section game" id="game">
+    <div class="section__inner">
+      <div class="benefits__header">
+        <div class="section__label reveal" style="justify-content:center;">
+          <i class="fas fa-gamepad"></i> Интерактив
+        </div>
+        <h2 class="section__title reveal">Стань сервисным инженером</h2>
+        <p class="section__desc reveal">
+          Управляй инженером: на ПК — <strong>WASD</strong> / <strong>стрелки</strong>, на телефоне — <strong>свайп</strong> по экрану.
+          Подойди к неисправному устройству и нажми <strong>Пробел</strong> (ПК) или кнопку <strong>🔧</strong> (телефон), чтобы починить.
+        </p>
+      </div>
+      <div class="game__wrapper reveal">
+        <canvas id="gameCanvas" width="900" height="500"></canvas>
+        <div class="game__hud">
+          <div class="game__hud-item"><i class="fas fa-wrench"></i> Починено: <span id="score">0</span></div>
+          <div class="game__hud-item"><i class="fas fa-exclamation-triangle"></i> Осталось: <span id="remaining">8</span></div>
+          <button id="repairBtn" class="btn btn-accent" style="padding:8px 20px;font-size:0.85rem;display:none"><i class="fas fa-wrench"></i> Чинить</button>
+          <button id="resetGame" class="btn btn-accent" style="padding:8px 20px;font-size:0.85rem"><i class="fas fa-redo"></i> Заново</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonials" id="testimonials">
+    <div class="section__inner">
+      <div class="testimonials__header">
+        <div class="section__label reveal" style="justify-content:center;">
+          <i class="fas fa-quote-right"></i> Отзывы
+        </div>
+        <h2 class="section__title reveal">Говорят наши инженеры</h2>
+        <p class="section__desc reveal">
+          Реальные истории сотрудников, которые начинали свой путь с позиции
+          сервисного инженера радиосети.
+        </p>
+      </div>
+      <div class="testimonials__grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__dancer" aria-hidden="true">🕺</div>
+          <div class="testimonial-card__quote"><i class="fas fa-quote-left"></i></div>
+          <p class="testimonial-card__text">
+            Пришёл стажёром после университета — ничего не знал про радиосети.
+            За полгода с помощью наставника разобрался в оборудовании, теперь
+            сам веду свой участок. Лучшее место для старта в телекоме!
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">АК</div>
+            <div>
+              <div class="testimonial-card__name">Алексей К.</div>
+              <div class="testimonial-card__role">Инженер 1 категории, 2 года в компании</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__dancer testimonial-card__dancer--delay-1" aria-hidden="true">💃</div>
+          <div class="testimonial-card__quote"><i class="fas fa-quote-left"></i></div>
+          <p class="testimonial-card__text">
+            Работаю уже 5 лет, прошёл путь от инженера до руководителя группы.
+            Компания даёт реальные возможности для роста — главное желание
+            учиться. Очень ценю атмосферу в коллективе.
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">МВ</div>
+            <div>
+              <div class="testimonial-card__name">Мария В.</div>
+              <div class="testimonial-card__role">Руководитель группы радиосети, 5 лет</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__dancer testimonial-card__dancer--delay-2" aria-hidden="true">🕺</div>
+          <div class="testimonial-card__quote"><i class="fas fa-quote-left"></i></div>
+          <p class="testimonial-card__text">
+            Интересная работа с современным оборудованием. Каждый день —
+            новый вызов. Компания поддерживает обучение, отправили на
+            сертификацию Huawei. Горжусь, что работаю в ЭР-Телеком.
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">ДС</div>
+            <div>
+              <div class="testimonial-card__name">Дмитрий С.</div>
+              <div class="testimonial-card__role">Ведущий инженер, 3 года в компании</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">ЭР-Телеком <span>Холдинг</span></div>
+        <p class="footer__text">
+          Крупнейший оператор широкополосного доступа в интернет и цифрового
+          телевидения в России. Работаем под брендами «Дом.ru» и «Дом.ru Бизнес».
+        </p>
+        <div class="footer__social">
+          <a href="https://vk.com/start.rabotaertelecom" target="_blank" rel="noopener" aria-label="VK"><i class="fab fa-vk"></i></a>
+          <a href="https://t.me/erstart" target="_blank" rel="noopener" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+          <a href="https://max.ru/id5902202276_biz" target="_blank" rel="noopener" aria-label="Мой Мир"><img src="https://max.ru/s/img/big-logo.png" alt="MAX" class="footer__social-img"></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">О компании</div>
+        <a href="https://ertelecom.ru" target="_blank" rel="noopener">О нас</a>
+        <a href="https://ertelecom.cloud/press" target="_blank" rel="noopener">Новости</a>
+        <a href="#career">Карьера</a>
+        <a href="https://ertelecom.ru/contacts" target="_blank" rel="noopener">Контакты</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Вакансии</div>
+        <a href="https://job.ertelecom.ru/" target="_blank" rel="noopener">Все вакансии</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Студентам</div>
+        <a href="https://job.ertelecom.ru/internships/internship31" target="_blank" rel="noopener">Стажировка</a>
+        <a href="https://job.ertelecom.ru/internships/internship21" target="_blank" rel="noopener">Практика</a>
+        <a href="https://start.rabotaertelecom.ru/summerschool/spb" target="_blank" rel="noopener">Мероприятия</a>
+        <a href="https://job.ertelecom.ru/help" target="_blank" rel="noopener">Советы соискателям</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      &copy; 2026 АО «ЭР-Телеком Холдинг». Все права защищены.
+    </div>
+  </footer>
+
+  <script>
+    // ===== Mobile menu =====
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      nav.classList.toggle('open');
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        nav.classList.remove('open');
+      });
+    });
+
+    // ===== Header scroll effect =====
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ===== Skills tabs =====
+    const tabs = document.querySelectorAll('.skills__tab');
+    const contents = {
+      tech: document.getElementById('tab-tech'),
+      soft: document.getElementById('tab-soft'),
+      tools: document.getElementById('tab-tools')
+    };
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        Object.values(contents).forEach(c => c.classList.remove('active'));
+        contents[tab.dataset.tab].classList.add('active');
+      });
+    });
+
+    // ===== Scroll reveal =====
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ===== Smooth anchor scroll =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 72;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ===== GAME: Сервисный инженер симулятор =====
+    const canvas = document.getElementById('gameCanvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      const scoreEl = document.getElementById('score');
+      const remainingEl = document.getElementById('remaining');
+
+      const TILE = 32;
+      const COLS = 28;
+      const ROWS = 15;
+      canvas.width = COLS * TILE;
+      canvas.height = ROWS * TILE;
+
+      const KEY = {};
+      window.addEventListener('keydown', e => { KEY[e.code] = true; if (['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyW','KeyA','KeyS','KeyD'].includes(e.code)) e.preventDefault(); });
+      window.addEventListener('keyup', e => { KEY[e.code] = false; });
+
+      let player = { x: 3, y: 7 };
+      let devices = [];
+      let score = 0;
+      const totalDevices = 8;
+      let gameWon = false;
+
+      const deviceDrawers = [
+        { name: 'Роутер', draw: drawRouter },
+        { name: 'Антенна', draw: drawAntenna },
+        { name: 'Сервер', draw: drawServer },
+        { name: 'Кабель', draw: drawCable }
+      ];
+
+      function drawRouter(cx, cy, s, broken) {
+        const sz = s * 0.75;
+        ctx.fillStyle = broken ? '#e53935' : '#00c853';
+        ctx.shadowColor = broken ? 'rgba(229,57,53,0.5)' : 'rgba(0,200,83,0.5)';
+        ctx.shadowBlur = 10;
+        ctx.beginPath(); ctx.roundRect(cx - sz/2, cy - sz/3, sz, sz*0.6, 4); ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(cx - sz/4, cy - sz/3 - 4, sz/2, 3);
+        ctx.beginPath(); ctx.arc(cx, cy, 2, 0, Math.PI*2); ctx.fillStyle = broken ? '#ff8a80' : '#b9f6ca'; ctx.fill();
+        ctx.beginPath(); ctx.arc(cx - 5, cy + 4, 1.5, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(cx + 5, cy + 4, 1.5, 0, Math.PI*2); ctx.fill();
+      }
+
+      function drawAntenna(cx, cy, s, broken) {
+        const h = s * 0.85;
+        ctx.fillStyle = broken ? '#e53935' : '#00c853';
+        ctx.shadowColor = broken ? 'rgba(229,57,53,0.5)' : 'rgba(0,200,83,0.5)';
+        ctx.shadowBlur = 10;
+        ctx.beginPath(); ctx.moveTo(cx, cy - h/2); ctx.lineTo(cx - s/3, cy + h/3); ctx.lineTo(cx + s/3, cy + h/3); ctx.closePath(); ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(cx, cy - h/2); ctx.lineTo(cx, cy - h/2 - 8); ctx.stroke();
+        ctx.beginPath(); ctx.arc(cx, cy + h/3 + 5, 2.5, 0, Math.PI*2); ctx.fillStyle = broken ? '#ff8a80' : '#b9f6ca'; ctx.fill();
+      }
+
+      function drawServer(cx, cy, s, broken) {
+        const w = s * 0.65, h = s * 0.45;
+        ctx.fillStyle = broken ? '#e53935' : '#00c853';
+        ctx.shadowColor = broken ? 'rgba(229,57,53,0.5)' : 'rgba(0,200,83,0.5)';
+        ctx.shadowBlur = 10;
+        ctx.beginPath(); ctx.roundRect(cx - w/2, cy - h/2, w, h, 3); ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = 'rgba(255,255,255,0.25)';
+        ctx.fillRect(cx - 8, cy - 3, 4, 6); ctx.fillRect(cx + 4, cy - 3, 4, 6);
+        ctx.beginPath(); ctx.arc(cx, cy, 2.5, 0, Math.PI*2); ctx.fillStyle = broken ? '#ff8a80' : '#b9f6ca'; ctx.fill();
+      }
+
+      function drawCable(cx, cy, s, broken) {
+        ctx.strokeStyle = broken ? '#e53935' : '#00c853';
+        ctx.shadowColor = broken ? 'rgba(229,57,53,0.5)' : 'rgba(0,200,83,0.5)';
+        ctx.shadowBlur = 8; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(cx - s/2, cy);
+        for (let i = 0; i <= 6; i++) { const t = i/6; ctx.lineTo(cx - s/2 + t*s, cy + Math.sin(t*Math.PI*3)*5); }
+        ctx.stroke(); ctx.shadowBlur = 0;
+        ctx.beginPath(); ctx.arc(cx + s/2 + 3, cy, 2.5, 0, Math.PI*2); ctx.fillStyle = broken ? '#ff8a80' : '#b9f6ca'; ctx.fill();
+      }
+
+      function makeDevices() {
+        devices = [];
+        const positions = [];
+        for (let i = 0; i < totalDevices; i++) {
+          let x, y, tries = 0;
+          do {
+            x = 2 + Math.floor(Math.random() * (COLS - 4));
+            y = 2 + Math.floor(Math.random() * (ROWS - 4));
+            tries++;
+          } while (tries < 200 && (Math.abs(x - player.x) + Math.abs(y - player.y) < 4 || positions.some(p => Math.abs(p.x - x) + Math.abs(p.y - y) < 3)));
+          positions.push({ x, y });
+          devices.push({ x, y, broken: true, type: deviceDrawers[i % 4] });
+        }
+      }
+
+      function drawFloor() {
+        for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) {
+          if ((x + y) % 2 === 0) { ctx.fillStyle = 'rgba(255,255,255,0.02)'; ctx.fillRect(x * TILE, y * TILE, TILE, TILE); }
+        }
+      }
+
+      function drawPlayer() {
+        const cx = player.x * TILE + TILE/2, cy = player.y * TILE + TILE/2;
+        ctx.fillStyle = '#42a5f5'; ctx.shadowColor = 'rgba(66,165,245,0.5)'; ctx.shadowBlur = 12;
+        ctx.beginPath(); ctx.arc(cx, cy - 3, 7, 0, Math.PI*2); ctx.fill();
+        ctx.fillStyle = '#ffd54f'; ctx.beginPath(); ctx.arc(cx, cy - 7, 5, Math.PI, 0); ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = '#1565c0'; ctx.fillRect(cx - 5, cy + 3, 10, 11);
+        ctx.fillStyle = '#0d47a1'; ctx.fillRect(cx - 6, cy + 12, 12, 3); ctx.fillRect(cx - 6, cy - 1, 3, 7); ctx.fillRect(cx + 3, cy - 1, 3, 7);
+        ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(cx - 3, cy - 5, 1.5, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(cx + 3, cy - 5, 1.5, 0, Math.PI*2); ctx.fill();
+      }
+
+      function drawDevices() {
+        devices.forEach(d => {
+          const cx = d.x * TILE + TILE/2, cy = d.y * TILE + TILE/2;
+          d.type.draw(cx, cy, TILE * 0.8, d.broken);
+          if (d.broken) {
+            ctx.fillStyle = '#ff5252'; ctx.font = 'bold 16px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            ctx.fillText('!', cx, cy - 2);
+          }
+        });
+      }
+
+      function drawVictoryMessage() {
+        ctx.fillStyle = 'rgba(0,0,0,0.6)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#00c853'; ctx.shadowColor = 'rgba(0,200,83,0.6)'; ctx.shadowBlur = 24;
+        ctx.font = 'bold 34px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText('Сеть работает! Все устройства исправны', canvas.width/2, canvas.height/2 - 12);
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.font = '16px Inter, sans-serif';
+        ctx.fillText('Нажми «Заново» чтобы пройти ещё раз', canvas.width/2, canvas.height/2 + 28);
+      }
+
+      function canMove(x, y) { return x >= 1 && x < COLS - 1 && y >= 1 && y < ROWS - 1; }
+
+      function getNearestBroken(px, py) {
+        let best = null, bestDist = Infinity;
+        devices.forEach(d => {
+          if (!d.broken) return;
+          const dist = Math.abs(d.x - px) + Math.abs(d.y - py);
+          if (dist < bestDist) { bestDist = dist; best = d; }
+        });
+        return bestDist <= 2 ? best : null;
+      }
+
+      function repairDevice() {
+        const d = getNearestBroken(player.x, player.y);
+        if (d) { d.broken = false; score++; scoreEl.textContent = score; remainingEl.textContent = totalDevices - score; if (score === totalDevices) gameWon = true; }
+      }
+
+      function gameLoop() {
+        if (!gameWon) {
+          let dx = 0, dy = 0;
+          if (KEY['ArrowLeft'] || KEY['KeyA']) dx = -1;
+          if (KEY['ArrowRight'] || KEY['KeyD']) dx = 1;
+          if (KEY['ArrowUp'] || KEY['KeyW']) dy = -1;
+          if (KEY['ArrowDown'] || KEY['KeyS']) dy = 1;
+          if (dx !== 0 && dy !== 0) dx = 0;
+          if ((dx || dy) && canMove(player.x + dx, player.y + dy)) { player.x += dx; player.y += dy; }
+          if (KEY['Space']) { repairDevice(); KEY['Space'] = false; }
+        }
+
+        ctx.fillStyle = '#1a2332'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        drawFloor();
+        drawDevices();
+        drawPlayer();
+        if (gameWon) drawVictoryMessage();
+        requestAnimationFrame(gameLoop);
+      }
+
+      canvas.addEventListener('click', (e) => {
+        if (gameWon) return;
+        const rect = canvas.getBoundingClientRect();
+        const mx = (e.clientX - rect.left) * (canvas.width / rect.width);
+        const my = (e.clientY - rect.top) * (canvas.height / rect.height);
+        const tx = Math.floor(mx / TILE), ty = Math.floor(my / TILE);
+        const d = getNearestBroken(tx, ty);
+        if (d) { player.x = d.x - 1; player.y = d.y; repairDevice(); }
+      });
+
+      // ===== Touch controls =====
+      let touchStartX = 0, touchStartY = 0;
+      canvas.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        const t = e.touches[0];
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+        // show repair button
+        document.getElementById('repairBtn').style.display = 'inline-flex';
+      }, { passive: false });
+
+      canvas.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        if (gameWon) return;
+        const t = e.touches[0];
+        const dx = t.clientX - touchStartX;
+        const dy = t.clientY - touchStartY;
+        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+        let moveX = 0, moveY = 0;
+        if (Math.abs(dx) > Math.abs(dy)) {
+          moveX = dx > 0 ? 1 : -1;
+        } else {
+          moveY = dy > 0 ? 1 : -1;
+        }
+        if (canMove(player.x + moveX, player.y + moveY)) {
+          player.x += moveX;
+          player.y += moveY;
+        }
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+      }, { passive: false });
+
+      canvas.addEventListener('touchend', (e) => {
+        e.preventDefault();
+      }, { passive: false });
+
+      document.getElementById('repairBtn').addEventListener('click', () => {
+        repairDevice();
+      });
+
+      document.getElementById('resetGame').addEventListener('click', () => {
+        player = { x: 3, y: 7 }; devices = []; score = 0; gameWon = false;
+        scoreEl.textContent = '0'; remainingEl.textContent = totalDevices;
+        makeDevices();
+      });
+
+      // fix roundRect polyfill for old browsers
+      if (!CanvasRenderingContext2D.prototype.roundRect) {
+        CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+          if (r > w / 2) r = w / 2; if (r > h / 2) r = h / 2;
+          this.moveTo(x + r, y); this.lineTo(x + w - r, y); this.quadraticCurveTo(x + w, y, x + w, y + r);
+          this.lineTo(x + w, y + h - r); this.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+          this.lineTo(x + r, y + h); this.quadraticCurveTo(x, y + h, x, y + h - r);
+          this.lineTo(x, y + r); this.quadraticCurveTo(x, y, x + r, y);
+          this.closePath(); return this;
+        };
+      }
+
+      makeDevices();
+      gameLoop();
+    }
+  </script>
+</body>
+</html>
